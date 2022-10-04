@@ -586,6 +586,13 @@ ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+annotatron@^0.0.13:
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/annotatron/-/annotatron-0.0.13.tgz#d1a7bb984de50e97dd25f972304779c85fc89c03"
+  integrity sha512-mV3Jtd/23fSU8bGZqLmqgm6/n/nkVoTj5mZpmZfoyRmgUGnZD1r9oP1wEiEdbTMWJYW6O45wHWzV+yayMzzfZQ==
+  dependencies:
+    reflect-metadata "^0.1.13"
+
 ansi-escapes@^4.2.1:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-4.3.2.tgz#6b2291d1db7d98b6521d5f1efa42d0f3a9feb65e"
@@ -3600,6 +3607,11 @@ redent@^1.0.0:
   dependencies:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
+
+reflect-metadata@^0.1.13:
+  version "0.1.13"
+  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
+  integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
 
 regexpp@^3.2.0:
   version "3.2.0"
