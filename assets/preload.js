@@ -1,29 +1,29 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { contextBridge, ipcRenderer } = require('electron');
+const { contextBridge, ipcRenderer } = require("electron");
 
 const observableLike = (key) => {
   return {
     subscribe: (observer) => {
-      const channel = 'annotatron:' + key;
       const ipcHandler = (evt, payload) => observer(payload);
 
-      ipcRenderer.on(channel, ipcHandler);
+      ipcRenderer.on(`annotatron:${key}`, ipcHandler);
       return {
-        unsubscribe: function() {
-          ipcRenderer.removeListener(channel, ipcHandler);
-        }
+        unsubscribe: function () {
+          ipcRenderer.removeListener(`annotatron:${key}`, ipcHandler);
+        },
       };
-    }
+    },
   };
 };
 
-contextBridge.exposeInMainWorld(
-  'mainProcess',
-  {
-    sendCommand: (command) => ipcRenderer.send('annotatron:commands', command),
-    sendQuery  : (query)   => ipcRenderer.send('annotatron:queries' , query),
-    results$   : observableLike('results'),
-    errors$    : observableLike('errors'),
-    events$    : observableLike('events'),
-  }
-);
+const dispatcherOf = (key) => (toSend) => {
+  ipcRenderer.send(`annotatron:${key}`, toSend);
+};
+
+contextBridge.exposeInMainWorld("mainProcess", {
+  dispatchCommand: dispatcherOf("commands"),
+  dispatchQuery: dispatcherOf("queries"),
+  results$: observableLike("results"),
+  errors$: observableLike("errors"),
+  events$: observableLike("events"),
+});

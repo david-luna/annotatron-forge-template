@@ -8,5 +8,22 @@
   <body>
     <h1>💖 Hello World!</h1>
     <p>Welcome to your Electron application.</p>
+    <p>
+      <button id="echo">Echo!</button>
+    </p>
+  
+  <script>
+    const button = document.getElementById('echo');
+    button.addEventListener('click', () => {
+      mainProcess.dispatchCommand({
+        type: "echo",
+        payload: "Message sent at " + new Date().toString(),
+      });
+    });
+
+    subscription = mainProcess.results$.subscribe((result) => {
+      console.log("result from backend", result);
+    });
+  </script>
   </body>
 </html>

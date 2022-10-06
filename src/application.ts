@@ -1,8 +1,9 @@
 import { ElectronModule } from 'annotatron';
+import { EchoModule } from './echo-module/echo.module';
 
 @ElectronModule({
   imports: [
-    // Add other modules here
+    EchoModule,
   ],
   providers: [
     // Add providers/services here
