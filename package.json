@@ -58,7 +58,7 @@
     "typescript": "~4.5.4"
   },
   "dependencies": {
-    "annotatron": "^0.0.13",
+    "annotatron": "^0.1.0",
     "electron-squirrel-startup": "^1.0.0"
   },
   "packageManager": "yarn@3.2.4"
